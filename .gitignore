@@ -1,0 +1,22 @@
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Output and Logs
+output/
+*.xlsx
+logs/
+*.csv
+
+# OS generated files
+.DS_Store
+_MACOSX/
