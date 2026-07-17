@@ -56,7 +56,56 @@ During an active disaster response, responders are flooded with unstructured mes
 └── .env                         # API keys (not committed)
 ```
 
-> Note: `router.py` and `config_loader.py` are referenced throughout `llm_client.py` and the notebook but weren't included in the reviewed files — structure above reflects their expected role based on usage.
+
+## 🏗️ System Architecture
+
+The pipeline processes unstructured data through a series of intelligent modules, utilizing LLMs for intent classification and data extraction.
+
+```mermaid
+flowchart TB
+    subgraph Data Sources
+        I1[Unstructured Data <br> Citizen SMS / Social Media]
+        I2[News Feeds]
+    end
+
+    subgraph Operation Ditwah: Core Pipeline
+        C1{Intent Classifier <br> Part 1}
+        
+        subgraph AI Processing Modules
+            M1[Logistics Commander <br> Chain of Thought - Part 3]
+            M2[Budget Keeper <br> Part 4]
+            M3[News Extraction Engine <br> Part 5]
+        end
+        
+        LLM((LLM Provider <br> Gemini / OpenAI))
+        
+        Utils[Utility Belt <br> JSON & Token Utils]
+    end
+
+    subgraph Output
+        O1[(Structured JSON <br> Database Ready)]
+        O2[Disaster Management <br> Dashboard]
+    end
+
+    I1 --> C1
+    I2 --> C1
+    
+    C1 -->|Rescue / Supplies| M1
+    C1 -->|Donations / Funds| M2
+    C1 -->|Situation Reports| M3
+    C1 -->|Spam| Drop[Discarded]
+    
+    M1 <--> LLM
+    M2 <--> LLM
+    M3 <--> LLM
+    
+    M1 --> Utils
+    M2 --> Utils
+    M3 --> Utils
+    
+    Utils --> O1
+    O1 --> O2
+```
 
 ---
 
