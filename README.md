@@ -116,3 +116,11 @@ GROQ_API_KEY="your_groq_key_here"
 
 ### 4. Run the Pipeline
 Open and run `notebooks/05_mini_project_0.ipynb` sequentially (Parts 1–5) in Jupyter or VS Code.
+
+
+## 🧪 Testing
+Unit tests are implemented using `pytest` to ensure the reliability of core data extraction components. 
+
+To run the tests locally:
+```bash
+pytest
